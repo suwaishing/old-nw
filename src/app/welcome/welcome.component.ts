@@ -13,7 +13,7 @@ export class WelcomeComponent implements OnInit {
   pagePilling() {
     $("#pagepiling").pagepiling({
       verticalCentered: false,
-      css3: false,
+      css3: true,
       onLeave: function(index, nextIndex, direction) {
         let buttons = document.querySelectorAll(".btn");
         let sideNav = document.querySelector("#pp-nav");
@@ -35,25 +35,17 @@ export class WelcomeComponent implements OnInit {
 
         //reaching our last section? The one with our normal site?
         if (nextIndex == 3) {
-          $("#arrow").hide();
+          $("#arrow").fadeOut("slow");
           //fading out navigation bullets
           $("#pp-nav").fadeOut();
         }
 
         //leaving our last section? The one with our normal site?
         if (index == 3) {
-          $("#arrow").show();
+          $("#arrow").fadeIn();
 
           //fadding in navigation bullets
           $("#pp-nav").fadeIn();
-
-          $("#section3 .content").animate(
-            {
-              top: "100%"
-            },
-            700,
-            "easeInQuart"
-          );
         }
       }
     });

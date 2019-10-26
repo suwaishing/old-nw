@@ -1,4 +1,20 @@
-<a href="" (click)="$event.preventDefault(); translate.use('vi')">vi</a>
-<a href="" (click)="$event.preventDefault(); translate.use('en')">en</a>
-<a href="" (click)="$event.preventDefault(); translate.use('jp')">jp</a>
-<a href="" (click)="$event.preventDefault(); translate.use('cn')">cn</a>
+<div class="trans-layout">
+  <mat-form-field>
+    <mat-select
+      class="trans-component text-center"
+      [(value)]="selected"
+      (selectionChange)="changeLang($event.value)"
+    >
+      <mat-select-trigger>
+        <i class="material-icons">language</i>&nbsp;{{ selectedText }}
+      </mat-select-trigger>
+      <mat-option
+        class="text-center"
+        *ngFor="let language of languages"
+        [value]="language.id"
+      >
+        {{ language.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

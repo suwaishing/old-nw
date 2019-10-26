@@ -1,0 +1,11 @@
+.trans-layout {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 10%);
+}
+
+::ng-deep mat-select-trigger.ng-star-inserted {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
+import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
 
 @Component({
-  selector: 'net-worth',
-  templateUrl: './net-worth.component.html',
-  styleUrls: ['./net-worth.component.scss']
+  selector: "net-worth",
+  templateUrl: "./net-worth.component.html",
+  styleUrls: ["./net-worth.component.scss"]
 })
 export class NetWorthComponent implements OnInit {
   cleaveOptions = {
-    numeral:true,
+    numeral: true,
     numeralPositiveOnly: true,
-    numeralThousandsGroupStyle: 'thousand'
-  }
+    numeralThousandsGroupStyle: "thousand"
+  };
   netWorth: FormGroup;
   cashOnHand: FormControl;
   cashInBank: FormControl;
@@ -32,33 +32,30 @@ export class NetWorthComponent implements OnInit {
   assetRatio: FormControl;
   debtRatio: FormControl;
   panelOpenState = false;
-  showResult:boolean =false;
+  showResult: boolean = false;
   selected;
 
-  constructor(public translate:TranslateService) { 
-    
-  }
-  
-  createFormControls() {
-    this.cashOnHand = new FormControl('100000000');
-    this.cashInBank = new FormControl('100000000');
-    this.house = new FormControl('100000000');
-    this.otherRealEstate = new FormControl('100000000');
-    this.stock = new FormControl('100000000');
-    this.bond = new FormControl('100000000');
-    this.otherInvestment = new FormControl('100000000');
-    this.vehicle = new FormControl('100000000');
-    this.jewelry = new FormControl('100000000');
-    this.personalProperty = new FormControl('100000000');
-    this.mortgage = new FormControl('100000000');
-    this.loan = new FormControl('100000000');
-    this.creditCard = new FormControl('100000000');
-    this.studentLoans = new FormControl('100000000');
-    this.otherDebt = new FormControl('100000000');
-    this.assetRatio = new FormControl('5');
-    this.debtRatio = new FormControl('2');
-  }
+  constructor(public translate: TranslateService) {}
 
+  createFormControls() {
+    this.cashOnHand = new FormControl("100000000");
+    this.cashInBank = new FormControl("100000000");
+    this.house = new FormControl("100000000");
+    this.otherRealEstate = new FormControl("100000000");
+    this.stock = new FormControl("100000000");
+    this.bond = new FormControl("100000000");
+    this.otherInvestment = new FormControl("100000000");
+    this.vehicle = new FormControl("100000000");
+    this.jewelry = new FormControl("100000000");
+    this.personalProperty = new FormControl("100000000");
+    this.mortgage = new FormControl("100000000");
+    this.loan = new FormControl("100000000");
+    this.creditCard = new FormControl("100000000");
+    this.studentLoans = new FormControl("100000000");
+    this.otherDebt = new FormControl("100000000");
+    this.assetRatio = new FormControl("5");
+    this.debtRatio = new FormControl("2");
+  }
 
   createForm() {
     this.netWorth = new FormGroup({
@@ -90,44 +87,43 @@ export class NetWorthComponent implements OnInit {
       growth: new FormGroup({
         assetRatio: this.assetRatio,
         debtRatio: this.debtRatio
-      }),
-    },);
-    
+      })
+    });
   }
 
-  nextTab(el){
-    el.selectedIndex+=1;
+  nextTab(el) {
+    el.selectedIndex += 1;
   }
-  prevTab(el){
-    el.selectedIndex-=1;
+  prevTab(el) {
+    el.selectedIndex -= 1;
   }
 
-  getCurrentLang(){
-    switch(this.translate.currentLang){
-      case 'en':
-        this.selected='USD';
+  getCurrentLang() {
+    switch (this.translate.currentLang) {
+      case "en":
+        this.selected = "USD";
         break;
-      case 'vi':
-        this.selected='VND';
+      case "vi":
+      default:
+        this.selected = "VND";
         break;
-      case 'jp':
-        this.selected='JPY';
+      case "jp":
+        this.selected = "JPY";
         break;
-      case 'cn':
-        this.selected='CNY';
+      case "cn":
+        this.selected = "CNY";
         break;
     }
   }
- 
+
   ngOnInit() {
     this.getCurrentLang();
-    this.translate.onLangChange
-      .subscribe((langChangeEvent: LangChangeEvent) => {
+    this.translate.onLangChange.subscribe(
+      (langChangeEvent: LangChangeEvent) => {
         this.getCurrentLang();
-      })
+      }
+    );
     this.createFormControls();
     this.createForm();
   }
-
-
 }
