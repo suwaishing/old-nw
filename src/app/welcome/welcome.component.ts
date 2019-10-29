@@ -9,7 +9,7 @@ declare var $: any;
 })
 export class WelcomeComponent implements OnInit {
   constructor() {}
-
+  // isSvgHide = false;
   pagePilling() {
     $("#pagepiling").pagepiling({
       verticalCentered: false,
@@ -54,7 +54,19 @@ export class WelcomeComponent implements OnInit {
       $.fn.pagepiling.moveSectionDown();
     });
   }
+
+  svgHide() {
+    let svgDiv = document.querySelector(".svg-div");
+    setTimeout(() => {
+      svgDiv.remove();
+      // this.isSvgHide = true;
+      setTimeout(() => {
+        this.pagePilling();
+      }, 0);
+    }, 2600);
+  }
+
   ngOnInit() {
-    this.pagePilling();
+    this.svgHide();
   }
 }

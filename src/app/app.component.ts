@@ -5,7 +5,8 @@ import {
   trigger,
   query,
   style,
-  animate
+  animate,
+  sequence
 } from "@angular/animations";
 import { RouterOutlet } from "@angular/router";
 
@@ -34,6 +35,19 @@ import { RouterOutlet } from "@angular/router";
         ),
         // Animate the new page in
         query(
+          ":leave",
+          [
+            sequence([
+              style({ opacity: 1, transform: "scale(1)" }),
+              animate(
+                "500ms ease",
+                style({ opacity: 0, transform: "scale(0)" })
+              )
+            ])
+          ],
+          { optional: true }
+        ),
+        query(
           ":enter",
           [
             animate(
@@ -57,18 +71,8 @@ export class AppComponent implements OnInit {
     angulartics2GoogleAnalytics.startTracking();
   }
 
-  isSvgHide = false;
-  svgHide() {
-    let svgDiv = document.querySelector(".svg-div");
-    let timeOut = setTimeout(() => {
-      svgDiv.remove();
-      this.isSvgHide = true;
-    }, 2600);
-    return timeOut;
-  }
   ngOnInit() {
     // setTimeout(() => (this.isSvgHide = true), 2600);
-    this.svgHide();
   }
   prepareOutlet(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData;

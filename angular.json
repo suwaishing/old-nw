@@ -21,8 +21,6 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
-              "src/netWorth-theme.scss",
-              "src/salary-theme.scss",
               "node_modules/pagepiling.js/jquery.pagepiling.css"
             ],
             "scripts": ["node_modules/jquery/dist/jquery.min.js"],
