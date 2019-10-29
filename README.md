@@ -1,27 +1,32 @@
-# Project
+# Project NW (Old state)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
+Simple, minimalist Net worth and Salary calculator specify in Viet Nam \(Originate from [Project-Nw](https://github.com/rozetta1125/project-nw)\)  
+Demo: https://suwaishing.github.io/old-nw/
 
-## Development server
+## Tech used
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3
+- [FusionCharts](https://www.fusioncharts.com/) to illustrate figure on chart
+- [Pagepiling](https://github.com/alvarotrigo/pagePiling.js#pagepilingjs) for slider \(\*\)
+- [@ngx-translate](https://github.com/ngx-translate/core) for multiple languages support
+- JQuery and Bootstrap 4 for styling and animations
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## What we learn
+- Basic Angular 2+ such as reactive and template driven form, routing, lazyloading and other basic concepts
+- Retrieve user input and return as usefull information in the form of graphs or tables
+- Some elemental in designing
+- Understand the math of those calculators
+## For running local
+- Run `npm i` for install modules.
+- Run `npm start` to build the project. 
+## Notes
+ \(\*\) This project removed some CSS in _node_modules\/pagepiling.js\/jquery.pagepiling.css_ as below
+ ```
+html,body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  /*Avoid flicker on slides transitions for mobile phones #336 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+ ```
