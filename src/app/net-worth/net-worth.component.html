@@ -1,8 +1,8 @@
 <app-nav></app-nav>
 <div class="container main-container">
   <div class="top-content">
-    <h1 class="text-center">{{ "NetWorth.H1" | translate }}</h1>
-    <p>{{ "NetWorth.H1-description" | translate }}</p>
+    <h1 class="text-center">{{ 'NetWorth.H1' | translate }}</h1>
+    <p>{{ 'NetWorth.H1-description' | translate }}</p>
   </div>
   <form [formGroup]="netWorth" class="fluid-container l-form">
     <mat-tab-group mat-stretch-tabs #matGroup>
@@ -13,7 +13,7 @@
               <mat-expansion-panel-header>
                 <mat-panel-title class="align-items-center">
                   <i class="material-icons">monetization_on</i>
-                  {{ "NetWorth.Cash" | translate }}
+                  {{ 'NetWorth.Cash' | translate }}
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <div
@@ -21,7 +21,7 @@
                 formGroupName="cashAndEquivalent"
               >
                 <mat-form-field appearance="outline">
-                  <mat-label>{{ "NetWorth.CashOnHand" | translate }}</mat-label>
+                  <mat-label>{{ 'NetWorth.CashOnHand' | translate }}</mat-label>
                   <input
                     inputmode="numeric"
                     matInput
@@ -30,7 +30,7 @@
                   />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                  <mat-label>{{ "NetWorth.CashInBank" | translate }}</mat-label>
+                  <mat-label>{{ 'NetWorth.CashInBank' | translate }}</mat-label>
                   <input
                     inputmode="numeric"
                     matInput
@@ -44,7 +44,7 @@
               <mat-expansion-panel-header>
                 <mat-panel-title class="align-items-center">
                   <i class="material-icons">home</i>
-                  {{ "NetWorth.RealEstate" | translate }}
+                  {{ 'NetWorth.RealEstate' | translate }}
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <div
@@ -52,7 +52,7 @@
                 formGroupName="realEstate"
               >
                 <mat-form-field appearance="outline">
-                  <mat-label>{{ "NetWorth.House" | translate }}</mat-label>
+                  <mat-label>{{ 'NetWorth.House' | translate }}</mat-label>
                   <input
                     inputmode="numeric"
                     matInput
@@ -62,7 +62,7 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>{{
-                    "NetWorth.OtherRealEstate" | translate
+                    'NetWorth.OtherRealEstate' | translate
                   }}</mat-label>
                   <input
                     inputmode="numeric"
@@ -77,7 +77,7 @@
               <mat-expansion-panel-header>
                 <mat-panel-title class="align-items-center">
                   <i class="material-icons">equalizer</i>
-                  {{ "NetWorth.Investment" | translate }}
+                  {{ 'NetWorth.Investment' | translate }}
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <div
@@ -85,7 +85,7 @@
                 formGroupName="investment"
               >
                 <mat-form-field appearance="outline">
-                  <mat-label>{{ "NetWorth.Stock" | translate }}</mat-label>
+                  <mat-label>{{ 'NetWorth.Stock' | translate }}</mat-label>
                   <input
                     inputmode="numeric"
                     matInput
@@ -95,7 +95,7 @@
                   />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                  <mat-label>{{ "NetWorth.Bond" | translate }}</mat-label>
+                  <mat-label>{{ 'NetWorth.Bond' | translate }}</mat-label>
                   <input
                     inputmode="numeric"
                     matInput
@@ -106,7 +106,7 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>{{
-                    "NetWorth.OtherInvestment" | translate
+                    'NetWorth.OtherInvestment' | translate
                   }}</mat-label>
                   <input
                     inputmode="numeric"
@@ -122,7 +122,7 @@
               <mat-expansion-panel-header>
                 <mat-panel-title class="align-items-center">
                   <i class="material-icons">directions_car</i>
-                  {{ "NetWorth.PersonalAssets" | translate }}
+                  {{ 'NetWorth.PersonalAssets' | translate }}
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <div
@@ -130,7 +130,7 @@
                 formGroupName="personalAssets"
               >
                 <mat-form-field appearance="outline">
-                  <mat-label>{{ "NetWorth.Vehicle" | translate }}</mat-label>
+                  <mat-label>{{ 'NetWorth.Vehicle' | translate }}</mat-label>
                   <input
                     inputmode="numeric"
                     matInput
@@ -139,7 +139,7 @@
                   />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                  <mat-label>{{ "NetWorth.Jewelry" | translate }}</mat-label>
+                  <mat-label>{{ 'NetWorth.Jewelry' | translate }}</mat-label>
                   <input
                     inputmode="numeric"
                     matInput
@@ -149,7 +149,7 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>{{
-                    "NetWorth.PersonalProperty" | translate
+                    'NetWorth.PersonalProperty' | translate
                   }}</mat-label>
                   <input
                     inputmode="numeric"
@@ -173,7 +173,7 @@
               type="button"
               (click)="nextTab(matGroup)"
             >
-              {{ "NetWorth.Next" | translate }}
+              {{ 'NetWorth.Next' | translate }}
             </button>
           </div>
         </div>
@@ -184,12 +184,12 @@
             <mat-expansion-panel-header>
               <mat-panel-title class="align-items-center">
                 <i class="material-icons">payment</i>
-                {{ "NetWorth.AllDebts" | translate }}
+                {{ 'NetWorth.AllDebts' | translate }}
               </mat-panel-title>
             </mat-expansion-panel-header>
             <div class="d-flex flex-column l-nwInput" formGroupName="Liability">
               <mat-form-field appearance="outline">
-                <mat-label>{{ "NetWorth.Mortgage" | translate }}</mat-label>
+                <mat-label>{{ 'NetWorth.Mortgage' | translate }}</mat-label>
                 <input
                   inputmode="numeric"
                   matInput
@@ -198,7 +198,7 @@
                 />
               </mat-form-field>
               <mat-form-field appearance="outline">
-                <mat-label>{{ "NetWorth.Installments" | translate }}</mat-label>
+                <mat-label>{{ 'NetWorth.Installments' | translate }}</mat-label>
                 <input
                   inputmode="numeric"
                   matInput
@@ -207,7 +207,7 @@
                 />
               </mat-form-field>
               <mat-form-field appearance="outline">
-                <mat-label>{{ "NetWorth.CreditCard" | translate }}</mat-label>
+                <mat-label>{{ 'NetWorth.CreditCard' | translate }}</mat-label>
                 <input
                   inputmode="numeric"
                   matInput
@@ -216,7 +216,7 @@
                 />
               </mat-form-field>
               <mat-form-field appearance="outline">
-                <mat-label>{{ "NetWorth.StudentLoans" | translate }}</mat-label>
+                <mat-label>{{ 'NetWorth.StudentLoans' | translate }}</mat-label>
                 <input
                   inputmode="numeric"
                   matInput
@@ -225,7 +225,7 @@
                 />
               </mat-form-field>
               <mat-form-field appearance="outline">
-                <mat-label>{{ "NetWorth.OtherLoans" | translate }}</mat-label>
+                <mat-label>{{ 'NetWorth.OtherLoans' | translate }}</mat-label>
                 <input
                   inputmode="numeric"
                   matInput
@@ -242,36 +242,11 @@
               class="btn-expansion"
               [ngx-scroll-to]="'#result'"
             >
-              {{ "NetWorth.Submit" | translate }}
+              {{ 'NetWorth.Submit' | translate }}
             </button>
           </div>
         </div>
       </mat-tab>
-      <!-- <mat-tab label="{{ 'NetWorth.Result' | translate }}">
-        <div class="container tab-container" formGroupName="growth">
-          <mat-expansion-panel class="tab-expansion" disabled [expanded]="true">
-            <mat-expansion-panel-header>
-              <mat-panel-title class="align-items-center">
-                <i class="material-icons">show_chart</i>
-                {{ 'NetWorth.Growth-des' | translate }}
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div class="d-flex flex-column l-nwInput">
-              <mat-form-field appearance="outline">
-                <mat-label>{{ 'NetWorth.AssetRatio' | translate }} %</mat-label>
-                <span class="suffix-edit" matSuffix>&nbsp;%</span>
-                <input type="number" inputmode="numeric" matInput formControlName="assetRatio" min="-500" max="500">
-              </mat-form-field>
-              <mat-form-field appearance="outline">
-                <mat-label>{{ 'NetWorth.DebtRatio' | translate }} %</mat-label>
-                <span class="suffix-edit" matSuffix>&nbsp;%</span>
-                <input type="number" inputmode="numeric" matInput formControlName="debtRatio" min="-500" max="500">
-              </mat-form-field>
-            </div>
-          </mat-expansion-panel>
-        </div>
-        
-      </mat-tab> -->
     </mat-tab-group>
   </form>
 </div>

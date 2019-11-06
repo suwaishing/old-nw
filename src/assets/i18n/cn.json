@@ -66,8 +66,8 @@
       "HealthInsurance": "医疗保险",
       "UnemploymentInsurance": "失业保险",
       "Deductible": "税额扣减",
-      "OtherDeductible": "其他的扣减",
-      "GeneralMiniumWage": "最低月工资水平",
+      "OthersDeductible": "其他的扣减",
+      "GeneralMinimumWage": "最低月工资水平",
       "RegionalMinimumWage": "区域性最低工资水平",
       "class-jp": ""
     },
