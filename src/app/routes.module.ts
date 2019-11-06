@@ -1,21 +1,21 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { WelcomeComponent } from "./welcome/welcome.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const appRoutes: Routes = [
-  { path: "", component: WelcomeComponent },
+  { path: '', component: WelcomeComponent },
   {
-    path: "net-worth",
-    loadChildren: "./net-worth/net-worth.module#NetWorthModule"
+    path: 'net-worth',
+    loadChildren: './net-worth/net-worth.module#NetWorthModule'
   },
   {
-    path: "salary",
-    loadChildren: "./salary/salary.module#SalaryModule"
+    path: 'salary',
+    loadChildren: './salary/salary.module#SalaryModule'
   },
-  { path: "welcome", component: WelcomeComponent },
+  { path: 'welcome', component: WelcomeComponent },
   {
-    path: "**",
-    loadChildren: "./page-not-found/page-not-found.module#PageNotFoundModule"
+    path: '**',
+    loadChildren: './page-not-found/page-not-found.module#PageNotFoundModule'
   }
 ];
 @NgModule({

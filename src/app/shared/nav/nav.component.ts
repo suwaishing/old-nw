@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-declare var $:any;
-
-
+declare var $: any;
 
 @Component({
   selector: 'app-nav',
@@ -9,26 +7,23 @@ declare var $:any;
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  constructor() { }
-  menuOpened:boolean=false;
-  menuClosed:boolean=true;
-  menuClicked:boolean=false;
-  
-  openMenu(){
-    this.menuClicked=true;
-    this.menuOpened=!this.menuOpened;
-    this.menuClosed=!this.menuClosed;
-    let text= this.menuOpened? "hidden" : "auto";
-    $("body").css("overflow-y",text);
-  
+  constructor() {}
+  menuOpened = false;
+  menuClosed = true;
+  menuClicked = false;
+
+  openMenu() {
+    this.menuClicked = true;
+    this.menuOpened = !this.menuOpened;
+    this.menuClosed = !this.menuClosed;
+    const text = this.menuOpened ? 'hidden' : 'auto';
+    $('body').css('overflow-y', text);
   }
-  closeMenu(){
-    this.menuOpened=true;
-    this.menuClosed=false;
-    $("body").css("overflow-y","auto");
+  closeMenu() {
+    this.menuOpened = true;
+    this.menuClosed = false;
+    $('body').css('overflow-y', 'auto');
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

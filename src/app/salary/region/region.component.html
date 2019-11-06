@@ -1,0 +1,136 @@
+<!-- <div class="row" id="regionSearch"> -->
+<div class="col">
+  <h3 class="text-center pt-4 pb-2">
+    {{ 'Salary.RegionSearch-h3' | translate }}
+  </h3>
+  <mat-form-field appearance="fill" class="w-100">
+    <mat-label>{{ 'Salary.RegionSearch-input' | translate }}</mat-label>
+    <input
+      matInput
+      #areaKeyWord
+      [(ngModel)]="filterKeyWord"
+      [matAutocomplete]="auto"
+      name="filterKeyWord"
+      type="text"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let area of filteredAreas" [value]="area.city">
+        <span>{{ area.city }}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <table class="table table-bordered text-center">
+    <tr class="w-100">
+      <thead>
+        <tr>
+          <th style="width:13%"></th>
+          <th style="width:86%">{{ 'Salary.province' | translate }}</th>
+          <th style="min-width: 65px; padding-left: 0; padding-right:0;">
+            {{ 'Salary.Region' | translate }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let area of filteredAreas | slice: minArea:maxArea">
+          <th class="align-middle">{{ area.city }}</th>
+          <td colspan="2" class="p-0">
+            <table class=" w-100 border-0">
+              <tr class="breakLineTd text-left" *ngIf="area.type.I">
+                <td>{{ area.type.I }}</td>
+                <td class="area-click">
+                  <button
+                    mat-raised-button
+                    type="button"
+                    (click)="pickRegion(1)"
+                    [ngx-scroll-to]="'h1'"
+                  >
+                    I
+                  </button>
+                </td>
+              </tr>
+              <tr class="breakLineTd text-left" *ngIf="area.type.II">
+                <td>{{ area.type.II }}</td>
+                <td class="area-click">
+                  <button
+                    mat-raised-button
+                    type="button"
+                    (click)="pickRegion(2)"
+                    [ngx-scroll-to]="'h1'"
+                  >
+                    II
+                  </button>
+                </td>
+              </tr>
+              <tr class="breakLineTd text-left" *ngIf="area.type.III">
+                <td>{{ area.type.III }}</td>
+                <td class="area-click">
+                  <button
+                    mat-raised-button
+                    type="button"
+                    (click)="pickRegion(3)"
+                    [ngx-scroll-to]="'h1'"
+                  >
+                    III
+                  </button>
+                </td>
+              </tr>
+              <tr class="breakLineTd text-left" *ngIf="area.type.IV">
+                <td>{{ area.type.IV }}</td>
+                <td class="area-click">
+                  <button
+                    mat-raised-button
+                    type="button"
+                    (click)="pickRegion(4)"
+                    [ngx-scroll-to]="'h1'"
+                  >
+                    IV
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" class="lastTd">
+            <div class="">{{ 'Salary.itemperpage' | translate }}</div>
+            <mat-form-field>
+              <mat-select
+                [(ngModel)]="numAreas"
+                name="numAreas"
+                (selectionChange)="numAreasChange()"
+              >
+                <mat-option [value]="5">5</mat-option>
+                <mat-option [value]="10">10</mat-option>
+                <mat-option [value]="25">25</mat-option>
+                <mat-option [value]="50">50</mat-option>
+                <mat-option [value]="63">63</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br />
+            <div class="padding-x">
+              {{ minArea + 1 }} - {{ maxArea }} {{ 'Salary.of' | translate }}
+              {{ filteredAreas.length }}
+            </div>
+            <button
+              mat-raised-button
+              [disabled]="!firstPage()"
+              matTooltip="{{ 'Salary.prev' | translate }}"
+              (click)="previousPage()"
+            >
+              <i class="material-icons">chevron_left</i>
+            </button>
+            <button
+              mat-raised-button
+              [disabled]="!lastPage()"
+              matTooltip="{{ 'Salary.next' | translate }}"
+              (click)="nextPage()"
+            >
+              <i class="material-icons">chevron_right</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </tr>
+  </table>
+</div>
+<!-- </div> -->

@@ -1,0 +1,193 @@
+     <!-- Result-->
+     <div class="row pt-4">
+      <div class="col">
+        <mat-expansion-panel disabled [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size:1rem;">
+              <h3>{{'Salary.result' | translate }} <i class="material-icons my-suffix-edit" (click)="sidenav.toggle();ScrollToSideNav()" matTooltip="{{'Salary.editTax' | translate }}"
+                matTooltipPosition="right">edit</i></h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <table class="table table-expansion">
+            <thead>
+              <tr>
+                <th scope="col" *ngIf="GrossNetBoolean">{{'Salary.Gross' | translate }}</th>
+                <th scope="col" *ngIf="!GrossNetBoolean">{{'Salary.Net' | translate }}</th>
+                <th scope="col">{{'Salary.Insurance-r' | translate }}</th>
+                <th scope="col">{{'Salary.PIT-r' | translate }}</th>
+                <th scope="col" *ngIf="GrossNetBoolean">{{'Salary.Net' | translate }}</th>
+                <th scope="col" *ngIf="!GrossNetBoolean">{{'Salary.Gross' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><label *ngIf="GrossNetBoolean">{{'Salary.Gross' | translate }}</label>
+                  <label *ngIf="!GrossNetBoolean">{{'Salary.Net' | translate }}</label>
+                  {{LuongNhap | number:'1.0-0'}}</td>
+                <td><label>{{'Salary.Insurance-r' | translate }}</label>{{TongBH | number:'1.0-0'}}</td>
+                <td><label>{{'Salary.PIT-r' | translate }}</label>{{TongTNCN | number:'1.0-0'}}</td>
+                <td><label *ngIf="GrossNetBoolean">{{'Salary.Net' | translate }}</label>
+                  <label *ngIf="!GrossNetBoolean">{{'Salary.Gross' | translate }}</label>
+                  {{LuongKetQua | number:'1.0-0'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-expansion-panel>
+      </div>
+    </div>
+    <!-- /Result-->
+    <!-- Insurance & PIT-->
+    <div  class="row mt-4 mb-4">
+      <div class="col">
+        <mat-accordion multi="true">
+          <mat-expansion-panel disabled [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h4>{{'Salary.Insurance-detail' | translate }}<i class="material-icons my-suffix-edit" (click)="sidenav.toggle();ScrollToSideNav()" matTooltip="{{'Salary.editTax' | translate }}"
+                  matTooltipPosition="right">edit</i></h4>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <table class="table table-expansion">
+              <thead>
+                <tr>
+                  <th scope="col">{{'Salary.Social' | translate }} ({{thueBHXH}}%)</th>
+                  <th scope="col">{{'Salary.Health' | translate }} ({{thueBHYT}}%)</th>
+                  <th scope="col">{{'Salary.Unemployment' | translate }} ({{thueBHTN}}%)</th>
+                  <th scope="col">{{'Salary.Total-I' | translate }} ({{ thueBHXH + thueBHYT + thueBHTN}}%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><label>{{'Salary.Social' | translate }} ({{thueBHXH}}%)</label>{{TienBHXH | number:'1.0-0'}}</td>
+                  <td><label>{{'Salary.Health' | translate }} ({{thueBHYT}}%)</label>{{TienBHYT | number:'1.0-0'}}</td>
+                  <td><label>{{'Salary.Unemployment' | translate }} ({{thueBHTN}}%)</label>{{TienBHTN | number:'1.0-0'}}</td>
+                  <td><label>{{'Salary.Total-I' | translate }} ({{ thueBHXH + thueBHYT + thueBHTN}}%)</label>{{TongBH | number:'1.0-0'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </mat-expansion-panel>
+          <mat-expansion-panel disabled [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h4>{{'Salary.PIT-detail' | translate }} <i class="material-icons my-suffix-edit" (click)="sidenav.toggle();ScrollToSideNav()" matTooltip="Chỉnh Sửa Thuế"
+                  matTooltipPosition="right">edit</i></h4>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <table class="table table-expansion">
+              <thead>
+                <tr>
+                  <th>{{'Salary.PreTaxIncome' | translate }}</th>
+                  <th>{{'Salary.personalDeductible' | translate }}</th>
+                  <th>{{'Salary.dependentDeductible' | translate }}</th>
+                  <th>{{'Salary.TaxableIncome' | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><label>{{'Salary.PreTaxIncome' | translate }}</label>{{ThuNhapChiuThue | number:'1.0-0'}}</td>
+                  <td><label>{{'Salary.personalDeductible' | translate }}</label>{{TienGiamTruBanThan | number:'1.0-0'}}</td>
+                  <td><label>{{'Salary.dependentDeductible' | translate }}</label>{{TienGiamTruNguoiPhuThuoc | number:'1.0-0'}}</td>
+                  <td><label>{{'Salary.TaxableIncome' | translate }}</label>{{ThuNhapTinhThue | number:'1.0-0'}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <table class="table table-expansion-2">
+              <tr>
+                <th scope="col">{{'Salary.TaxableIncome' | translate }}</th>
+                <th scope="col">{{'Salary.Tax' | translate }}</th>
+                <th scope="col">{{'Salary.Amount' | translate }}</th>
+              </tr>
+              <tr>
+                <td scope="row">{{'Salary.to5' | translate }}</td>
+                <td>{{to5}}%</td>
+                <td>{{Tiento5 | number:'1.0-0'}}</td>
+              </tr>
+              <tr>
+                <td scope="row">{{'Salary.from5to10' | translate }}</td>
+                <td>{{from5to10}}%</td>
+                <td>{{TienFrom5to10 | number:'1.0-0'}}</td>
+              </tr>
+              <tr>
+                <td scope="row">{{'Salary.from10to18' | translate }}</td>
+                <td>{{from10to18}}%</td>
+                <td>{{TienFrom10to18 | number:'1.0-0'}}</td>
+              </tr>
+              <tr>
+                <td scope="row">{{'Salary.from18to32' | translate }}</td>
+                <td>{{from18to32}}%</td>
+                <td>{{TienFrom18to32 | number:'1.0-0'}}</td>
+              </tr>
+              <tr>
+                <td scope="row">{{'Salary.from32to52' | translate }}</td>
+                <td>{{from32to52}}%</td>
+                <td>{{TienFrom32to52 | number:'1.0-0'}}</td>
+              </tr>
+              <tr>
+                <td scope="row">{{'Salary.from52to80' | translate }}</td>
+                <td>{{from52to80}}%</td>
+                <td>{{TienFrom52to80 | number:'1.0-0'}}</td>
+              </tr>
+              <tr>
+                <td scope="row">{{'Salary.from80' | translate }}</td>
+                <td>{{from80}}%</td>
+                <td>{{TienFrom80 | number:'1.0-0'}}</td>
+              </tr>
+              <tr>
+                <td colspan="2">{{'Salary.PIT-total' | translate }}</td>
+                <td class="text-left">{{TongTNCN | number:'1.0-0'}}</td>
+              </tr>
+            </table>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+    <!-- /Insurance & PIT-->
+    <!-- Inflation-->
+    <mat-expansion-panel  disabled [expanded]="true" class="mb-4">
+      <mat-expansion-panel-header>
+        <h4 class="text-center">{{'Salary.InflationAssumptions' | translate }}</h4> 
+      </mat-expansion-panel-header>
+      <br>
+      <div>
+        <h5 class="netYear">{{'Salary.annualNetIncome' | translate }} <span>{{AnnualSalary | number:'1.0-0'}} VND</span></h5>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'Salary.annualInflationRate' | translate }}</mat-label>
+          <input matInput [(ngModel)]="Inflation" name="Inflation" type="number"
+            inputmode="numeric"/>
+        </mat-form-field>
+      </div>
+      <div class="inflation-div row">
+        <div class="col-md-8 col no-p">
+          <h5>{{'Salary.InflationAdjustedAnnualIncome' | translate }}</h5>
+          <div id="LineChart">
+            <fusioncharts
+              [width]="lwidth"
+              [height]="lheight"
+              [type]="ltype"
+              [dataFormat]="dataFormat"
+              [dataSource]="dataSource"
+            >
+            </fusioncharts>
+          </div>
+        </div>
+        <div class="col-md-4 no-p">
+          <h5 class="{{ 'Salary.class-jp' | translate }}">{{'Salary.NetKeepUp' | translate }}</h5>
+          <table class="table table-expansion-3">
+            <thead>
+              <tr>
+                <th>{{'Salary.Year' | translate }}</th>
+                <th>{{'Salary.Net' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let label of Netfor5YearValuelabel;let i=index">
+              <tr>
+                <td>{{label}}</td>
+                <td>{{Netfor5YearValuedata[i] | number:'1.0-0'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <!-- /Inflation-->
