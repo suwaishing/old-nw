@@ -38,7 +38,7 @@
     "angular-tabs-component": "^1.0.6",
     "angulartics2": "^7.4.1",
     "bootstrap": "^4.3.1",
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.9.4",
     "chartjs-plugin-labels": "^1.1.0",
     "cleave.js": "^1.4.7",
     "core-js": "^2.5.4",
